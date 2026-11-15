@@ -505,18 +505,9 @@
     <button class="dialog-close" type="button" aria-label="Close">×</button>
     <h2 id="legalTitle"></h2>
     <div id="legalBody"></div>
-  </dialog>
 
   <script type="module" src="app.js"></script>
 
-  <button class="ai-launcher" id="aiLauncher" type="button" aria-haspopup="dialog" aria-controls="aiPanel" aria-expanded="false"><span class="ai-launch-icon" aria-hidden="true">✦</span><span class="ai-launch-label">Ask Bladefall AI</span></button>
-  <aside class="ai-panel" id="aiPanel" role="dialog" aria-label="Bladefall AI assistant" aria-modal="false" hidden>
-    <header class="ai-header"><div class="ai-brand-mark" aria-hidden="true">✦</div><div class="ai-header-copy"><strong>Bladefall AI</strong><span><i></i> 30+ languages · ready 24/7</span></div><button class="ai-close" id="aiClose" type="button" aria-label="Close assistant">×</button></header>
-    <div class="ai-chat-log" id="aiChatLog" role="log" aria-live="polite" aria-relevant="additions text"></div>
-    <form class="ai-compose" id="aiForm"><label class="sr-only" for="aiInput">Message Bladefall AI</label><textarea id="aiInput" rows="1" maxlength="2000" placeholder="Ask anything about BladefallSMP…" required></textarea><button class="ai-send" id="aiSend" type="submit" aria-label="Send message">↑</button></form>
-    <div class="ai-footnote">AI-generated · remembers up to 80 recent messages</div>
-  </aside>
-  <script type="module" src="ai-assistant.js"></script>
-
+  
 </body>
 </html>
