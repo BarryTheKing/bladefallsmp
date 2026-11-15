@@ -107,3 +107,42 @@ kingsSearch?.addEventListener('input', () => {
   });
   if (kingsEmpty) kingsEmpty.hidden = visible !== 0;
 });
+
+
+const serverCopyButton = document.getElementById('copyServerIp');
+const ipToast = document.getElementById('ipToast');
+serverCopyButton?.addEventListener('click', async () => {
+  const joinAddress = 'BarryHarry1505';
+  try { await navigator.clipboard.writeText(joinAddress); }
+  catch { const field = document.createElement('textarea'); field.value = joinAddress; field.style.position = 'fixed'; field.style.opacity = '0'; document.body.appendChild(field); field.select(); document.execCommand('copy'); field.remove(); }
+  ipToast.textContent = 'Join details copied!'; ipToast.classList.add('show');
+  window.setTimeout(() => ipToast.classList.remove('show'), 2500);
+});
+const guideContent = {
+ rules: '<h3>A lawless world. Stay alert.</h3><p>BladefallSMP is described as an anarchy survival experience.</p><ul><li>No safe zones or protected bases.</li><li>Raids and PvP can happen at any time.</li><li>Protect your gear; trust no one.</li><li>Be respectful to the community and follow platform rules.</li></ul>',
+ mechanics: '<h3>Danger is everywhere</h3><ul><li>Orbital Strike — a devastating attack from above.</li><li>Raids — find bases and fight for their loot.</li><li>No safe zones — nowhere is off-limits.</li><li>Survival PvP — gear up and fight to survive.</li></ul><p class="guide-callout">Mechanics may vary depending on the current season setup.</p>',
+ howto: '<h3>Join the world</h3><p><b>1.</b> Open Minecraft Bedrock / MCPE.</p><p><b>2.</b> Go to Friends → Add Friend and search for <b>BarryHarry1505</b>.</p><p><b>3.</b> Add the gamertag as a friend and join the open world.</p><p class="guide-callout">A direct server IP is not listed on the current site; connect using the gamertag.</p>',
+ ranks: `<div class="shop-intro"><div><span class="mcpvp-eyebrow">IN-GAME ECONOMY</span><h3>Ranks &amp; Shop</h3></div><span class="shop-currency">$ SERVER DOLLARS</span></div><h4>Server Ranks</h4><div class="shop-grid"><article class="shop-card"><span class="shop-item-type">RANK</span><h5>VIP</h5><strong>$5,000</strong></article><article class="shop-card"><span class="shop-item-type">RANK</span><h5>PRO</h5><strong>$12,500</strong></article><article class="shop-card"><span class="shop-item-type">RANK</span><h5>ELITE</h5><strong>$25,000</strong></article><article class="shop-card"><span class="shop-item-type">RANK</span><h5>LEGEND</h5><strong>$50,000</strong></article></div><h4 class="shop-subhead">In-Game Items</h4><div class="shop-grid"><article class="shop-card"><span class="shop-item-type">ITEM</span><h5>Diamond Kit</h5><strong>$2,500</strong></article><article class="shop-card"><span class="shop-item-type">ITEM</span><h5>Totem of Undying</h5><strong>$4,000</strong></article><article class="shop-card"><span class="shop-item-type">ITEM</span><h5>Ender Chest</h5><strong>$1,500</strong></article><article class="shop-card"><span class="shop-item-type">ITEM</span><h5>32 Netherite Blocks</h5><strong>$3,500</strong></article></div><p class="shop-note">Example in-game prices only · availability and final prices depend on the live server economy. No real-money purchases.</p>`
+};
+const guidePanel = document.getElementById('guidePanel');
+const guideTabs = [...document.querySelectorAll('.guide-tab')];
+function setGuideTab(key) { if (!guidePanel || !guideContent[key]) return; guidePanel.innerHTML = guideContent[key]; guideTabs.forEach(tab => { const active = tab.dataset.tab === key; tab.classList.toggle('active', active); tab.setAttribute('aria-selected', String(active)); }); }
+guideTabs.forEach((tab, index) => { tab.addEventListener('click', () => setGuideTab(tab.dataset.tab)); tab.addEventListener('keydown', event => { if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return; event.preventDefault(); const next = (index + (event.key === 'ArrowRight' ? 1 : -1) + guideTabs.length) % guideTabs.length; guideTabs[next].focus(); setGuideTab(guideTabs[next].dataset.tab); }); });
+setGuideTab('rules');
+const pvpButtons = [...document.querySelectorAll('.pvp-player')];
+const pvpList = document.querySelector('.pvp-player-list');
+document.querySelectorAll('.filter-btn').forEach(button => button.addEventListener('click', () => {
+ document.querySelectorAll('.filter-btn').forEach(item => item.classList.toggle('active', item === button));
+ const key = button.dataset.sort;
+ pvpButtons.sort((a,b) => Number(b.dataset[key]) - Number(a.dataset[key])).forEach((player, index) => { player.querySelector('.pvp-rank').textContent = String(index + 1).padStart(2, '0'); pvpList.appendChild(player); });
+}));
+const playerModal = document.getElementById('playerModal');
+const playerModalContent = document.getElementById('playerModalContent');
+pvpButtons.forEach(player => player.addEventListener('click', () => {
+ const d = player.dataset;
+ playerModalContent.innerHTML = '<div class="player-profile-head"><img src="' + d.avatar + '" alt=""><div><h2 id="playerModalName">' + d.player + '</h2><p>' + d.clan + ' • SEASON 1</p></div></div><div class="profile-stats"><div class="profile-stat"><span>K/D ratio</span><b>' + d.kd + '</b></div><div class="profile-stat"><span>Favorite weapon</span><b>' + d.weapon + '</b></div><div class="profile-stat"><span>Kills</span><b>' + d.kills + '</b></div><div class="profile-stat"><span>Best streak</span><b>' + d.streak + '</b></div><div class="profile-stat"><span>Raids</span><b>' + d.raids + '</b></div><div class="profile-stat"><span>Clan</span><b>' + d.clan + '</b></div></div>';
+ playerModal.showModal();
+}));
+document.querySelector('.player-close')?.addEventListener('click', () => playerModal.close());
+playerModal?.addEventListener('click', event => { if (event.target === playerModal) playerModal.close(); });
+document.addEventListener('keydown', event => { if (event.key === 'Escape' && playerModal?.open) playerModal.close(); });

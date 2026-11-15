@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#05070d" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚔️</text></svg>">
-
-<title>BladefallSMP</title>
+  <link rel="icon" type="image/png" href="img/bladefallsmp-logo.png" />
+  <title>BladefallSMP</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -24,6 +23,7 @@
     </nav>
     <a class="brand centered-brand" href="#top" aria-label="BladefallSMP home"><img class="nav-logo" src="img/bladefallsmp-logo.png" alt="BladefallSMP" /></a>
     <nav class="nav-side nav-right" aria-label="More navigation">
+      <a class="nav-icon" href="#server-guide" aria-label="Server Guide" title="Server Guide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5z"/><path d="M5 4.5v17M9 7h7M9 10h7M9 13h5"/></svg></a>
       <a class="nav-icon" href="#kings-leaderboard" aria-label="BladefallSMP Leaderboard" title="BladefallSMP Leaderboard"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8m-4-4v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4v2a4 4 0 0 0 4 4m9-6h3v2a4 4 0 0 1-4 4"/><path d="M10 8h4"/></svg></a>
       <a class="nav-icon" href="#join" aria-label="Join" title="Join"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5M10 17l5-5-5-5m5 5H3"/></svg></a>
       <a class="nav-icon" href="#community" aria-label="Community" title="Community"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0m2-15a3.5 3.5 0 0 1 0 6.8m1 2.3a5.2 5.2 0 0 1 3 5.9"/></svg></a>
@@ -38,8 +38,11 @@
         <a href="#join" class="btn primary">Join the Server</a>
         <a href="#community" class="btn ghost">Join the Community on YouTube</a>
       </div>
+      <div class="server-hero-tools"><button class="btn primary ip-copy" id="copyServerIp">COPY SERVER IP <span aria-hidden="true">⧉</span></button><span class="season-badge">● SEASON 1 <i>•</i> BEDROCK</span><span class="ip-toast" id="ipToast" role="status" aria-live="polite">Join details copied!</span></div>
       <div class="shimmer"></div>
     </section>
+
+    <section class="trailer-section" aria-label="Season 1 trailer"><article class="trailer-card trailer-upcoming"><span class="trailer-art"><img src="img/bladefallsmp-banner-logo.png" alt="BladefallSMP season one" /><span class="coming-soon-tag">COMING SOON</span></span><span class="trailer-copy"><span class="trailer-kicker">BLADEFALL SMP • SEASON 1</span><strong>Season 1 Trailer Coming Soon</strong><span>The official trailer is in production.</span></span></article></section>
 
     <section id="about" class="section">
       <h2>Our World</h2>
@@ -95,10 +98,10 @@
       <div class="news-grid">
         <article class="news-card news-card-featured">
           <img class="news-feature-image season-image" src="img/bladefallsmp-logo.png" alt="BladefallSMP light-blue sword emblem" />
-          <span class="news-category">UPCOMING SEASON</span>
-          <h3>BladefallSMP Season 1 is coming soon</h3>
-          <p>A new chapter is on the way. Stay tuned for more.</p>
-          <a href="#join">Enter BladefallSMP <span aria-hidden="true">↗</span></a>
+          <span class="news-category">UPCOMING SEASON 1</span>
+          <h3>Season 1 is coming soon!</h3>
+          <p>We are preparing for launch. Stay tuned for the Season 1 opening announcement.</p>
+          <a href="#join">Join Season 1 <span aria-hidden="true">↗</span></a>
         </article>
         <article class="news-card news-card-featured">
           <img class="news-feature-image" src="img/flarial-client.jpg" alt="Flarial Client logo" />
@@ -123,7 +126,7 @@
           <span class="news-category">COMMUNITY</span>
           <h3>Join the crew</h3>
           <p>Follow BladefallSMP on YouTube and keep up with the community.</p>
-          <a href="https://www.youtube.com/@BladefallSMP" target="_blank" rel="noopener noreferrer">Visit YouTube <span aria-hidden="true">↗</span></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">Visit YouTube <span aria-hidden="true">↗</span></a>
         </article>
       </div>
     </section>
@@ -160,6 +163,7 @@
           <p class="kings-board-empty" id="kingsLeaderboardEmpty" hidden>No players found.</p>
         </div>
       </div>
+      <div class="pvp-live-board"><div class="pvp-board-head"><div><span class="mcpvp-eyebrow">PVP RANKINGS</span><h3>Season rankings</h3></div><div class="pvp-filters" role="group" aria-label="Leaderboard metric"><button class="filter-btn active" data-sort="kills">Kills</button><button class="filter-btn" data-sort="streak">Streak</button><button class="filter-btn" data-sort="raids">Raids</button></div></div><div class="pvp-player-list"><button class="pvp-player" type="button" data-player="Kobisteria" data-kills="940" data-streak="18" data-raids="34" data-kd="4.8" data-weapon="Netherite Axe" data-clan="FALL" data-avatar="img/kobisteria-character.jpg"><span class="pvp-rank">01</span><img src="img/kobisteria-character.jpg" alt=""/><span class="pvp-player-name">Kobisteria<small>FALL • SEASON 1</small></span><span class="pvp-stat"><b data-value="kills">940</b><small>KILLS</small></span><span class="pvp-stat"><b data-value="streak">18</b><small>STREAK</small></span><span class="pvp-stat"><b data-value="raids">34</b><small>RAIDS</small></span><span class="pvp-open">↗</span></button><button class="pvp-player" type="button" data-player="FlameSh0t" data-kills="812" data-streak="15" data-raids="27" data-kd="3.9" data-weapon="Crystal" data-clan="VOID" data-avatar="img/flameshot-character.jpg"><span class="pvp-rank">02</span><img src="img/flameshot-character.jpg" alt=""/><span class="pvp-player-name">FlameSh0t<small>VOID • SEASON 1</small></span><span class="pvp-stat"><b data-value="kills">812</b><small>KILLS</small></span><span class="pvp-stat"><b data-value="streak">15</b><small>STREAK</small></span><span class="pvp-stat"><b data-value="raids">27</b><small>RAIDS</small></span><span class="pvp-open">↗</span></button><button class="pvp-player" type="button" data-player="BarryHarry1505" data-kills="675" data-streak="12" data-raids="21" data-kd="3.2" data-weapon="Diamond Sword" data-clan="NOVA" data-avatar="img/barryharry1505-character.jpg"><span class="pvp-rank">03</span><img src="img/barryharry1505-character.jpg" alt=""/><span class="pvp-player-name">BarryHarry1505<small>NOVA • SEASON 1</small></span><span class="pvp-stat"><b data-value="kills">675</b><small>KILLS</small></span><span class="pvp-stat"><b data-value="streak">12</b><small>STREAK</small></span><span class="pvp-stat"><b data-value="raids">21</b><small>RAIDS</small></span><span class="pvp-open">↗</span></button></div><p class="pvp-note">Example PvP profiles · stats are illustrative</p></div>
     </section>
 
     <section id="leaderboard" class="section leaderboard">
@@ -378,15 +382,17 @@
       </div>
     </section>
 
+    <section id="server-guide" class="section server-guide"><div class="guide-heading"><span class="mcpvp-eyebrow">BLADEFALL SMP • FIELD GUIDE</span><h2>Server Guide</h2></div><div class="guide-tabs" role="tablist" aria-label="Server Guide"><button class="guide-tab active" role="tab" aria-selected="true" data-tab="rules">Server Rules</button><button class="guide-tab" role="tab" aria-selected="false" data-tab="mechanics">PvP Mechanics</button><button class="guide-tab" role="tab" aria-selected="false" data-tab="howto">How to Join</button><button class="guide-tab" role="tab" aria-selected="false" data-tab="ranks">Ranks</button></div><div class="guide-panel" role="tabpanel" id="guidePanel"></div></section>
+
     <section id="join" class="section join">
       <h2>Join BladefallSMP</h2>
       <p class="lede">Grab Bedrock Edition, jump on, and start your adventure tonight.</p>
       <div class="server-box">
         <div class="row"><span class="k">Platform</span><span class="v">MCPE / Bedrock</span></div>
         <div class="row"><span class="k">How to Join</span><span class="v">Add my gamertag as a friend</span></div>
-        <div class="row"><span class="k">Gamertag</span><span class="v code">BarryTheKing769</span></div>
+        <div class="row"><span class="k">Gamertag</span><span class="v code">BarryHarry1505</span></div>
       </div>
-      <p class="hint">In Minecraft, tap Friends &gt; Add Friend, search <b>BarryTheKing769</b>, and join my world to continue.</p>
+      <p class="hint">In Minecraft, tap Friends &gt; Add Friend, search <b>BarryHarry1505</b>, and join my world to continue.</p>
       <p class="hint">Anything goes. Watch your back, trust no one, and fight for everything.</p>
       <div class="share-row">
         <button class="btn primary" id="copyLink">Copy Link</button>
@@ -454,13 +460,11 @@
   <section id="community" class="section community">
     <h2>Community &amp; Credits</h2>
     <p class="lede">Join our YouTube channel and meet the crew behind BladefallSMP.</p>
-    <a class="yt-btn" href="https://www.youtube.com/@BladefallSMP" target="_blank" rel="noopener">
+    <a class="yt-btn" href="https://youtube.com" target="_blank" rel="noopener">
       <span class="yt-ico">▶</span> BladefallSMP on YouTube
     </a>
     <div class="credits">
       <div class="credit">Kobisteria</div>
-      <div class="credit">FlameSh0t</div>
-      <div class="credit">fisherland14</div>
       <div class="credit">Fleo40</div>
       <div class="credit">PalePython</div>
     </div>
@@ -483,7 +487,7 @@
       </div>
       <div class="footer-group">
         <h2>Community</h2>
-        <a href="https://www.youtube.com/@BladefallSMP" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a>
       </div>
       <div class="footer-group">
         <h2>Legal</h2>
@@ -495,6 +499,8 @@
     <div class="footer-bottom"><span>© <span id="year"></span> BladefallSMP</span><a href="#top">Back to top ↑</a></div>
   </footer>
 
+  <dialog class="player-modal" id="playerModal" aria-labelledby="playerModalName"><button class="dialog-close player-close" type="button" aria-label="Kapat">×</button><div id="playerModalContent"></div></dialog>
+
   <dialog class="legal-dialog" id="legalDialog" aria-labelledby="legalTitle">
     <button class="dialog-close" type="button" aria-label="Close">×</button>
     <h2 id="legalTitle"></h2>
@@ -502,5 +508,15 @@
   </dialog>
 
   <script type="module" src="app.js"></script>
+
+  <button class="ai-launcher" id="aiLauncher" type="button" aria-haspopup="dialog" aria-controls="aiPanel" aria-expanded="false"><span class="ai-launch-icon" aria-hidden="true">✦</span><span class="ai-launch-label">Ask Bladefall AI</span></button>
+  <aside class="ai-panel" id="aiPanel" role="dialog" aria-label="Bladefall AI assistant" aria-modal="false" hidden>
+    <header class="ai-header"><div class="ai-brand-mark" aria-hidden="true">✦</div><div class="ai-header-copy"><strong>Bladefall AI</strong><span><i></i> 30+ languages · ready 24/7</span></div><button class="ai-close" id="aiClose" type="button" aria-label="Close assistant">×</button></header>
+    <div class="ai-chat-log" id="aiChatLog" role="log" aria-live="polite" aria-relevant="additions text"></div>
+    <form class="ai-compose" id="aiForm"><label class="sr-only" for="aiInput">Message Bladefall AI</label><textarea id="aiInput" rows="1" maxlength="2000" placeholder="Ask anything about BladefallSMP…" required></textarea><button class="ai-send" id="aiSend" type="submit" aria-label="Send message">↑</button></form>
+    <div class="ai-footnote">AI-generated · remembers up to 80 recent messages</div>
+  </aside>
+  <script type="module" src="ai-assistant.js"></script>
+
 </body>
 </html>
