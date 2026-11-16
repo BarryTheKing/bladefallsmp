@@ -129,6 +129,38 @@ const guideTabs = [...document.querySelectorAll('.guide-tab')];
 function setGuideTab(key) { if (!guidePanel || !guideContent[key]) return; guidePanel.innerHTML = guideContent[key]; guideTabs.forEach(tab => { const active = tab.dataset.tab === key; tab.classList.toggle('active', active); tab.setAttribute('aria-selected', String(active)); }); }
 guideTabs.forEach((tab, index) => { tab.addEventListener('click', () => setGuideTab(tab.dataset.tab)); tab.addEventListener('keydown', event => { if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return; event.preventDefault(); const next = (index + (event.key === 'ArrowRight' ? 1 : -1) + guideTabs.length) % guideTabs.length; guideTabs[next].focus(); setGuideTab(guideTabs[next].dataset.tab); }); });
 setGuideTab('rules');
+
+const techniqueContent = {
+ movement: '<h3>Movement &amp; spacing</h3><ul><li>Vary your left-right strafes in short bursts so your path is harder to predict.</li><li>Keep moving while tracking your opponent; avoid backing straight away for too long.</li><li>Use sprint to control distance, then pause or change direction instead of charging blindly.</li><li>Jump selectively to dodge or clear terrain—constant jumps can make your movement easier to read.</li></ul><button class="tech-ask-ai" type="button" data-ask-ai="Give me a short Minecraft Bedrock PvP practice drill for strafing, sprint control, and spacing.">Ask AI for a practice drill <span aria-hidden="true">↗</span></button>',
+ melee: '<h3>Melee &amp; aim</h3><ul><li>Place your crosshair on the opponent before you commit to a swing.</li><li>Stay within effective reach; after knockback, re-center your aim and close the gap deliberately.</li><li>Change strafe direction while engaging rather than repeating one predictable approach.</li><li>Use a shield only when your current kit and server rules allow it, and lower it to reposition.</li></ul><button class="tech-ask-ai" type="button" data-ask-ai="Give me a short fair-play Bedrock melee PvP drill for crosshair tracking and spacing.">Ask AI for a practice drill <span aria-hidden="true">↗</span></button>',
+ ranged: '<h3>Ranged pressure</h3><ul><li>Lead moving targets: aim slightly ahead of their direction, adjusting for distance and your timing.</li><li>Draw and release from cover where possible; avoid standing still for a predictable shot.</li><li>After a shot, move or change angle instead of repeating the same peek.</li><li>Use ranged pressure to make an opponent move, then switch tactics if they close the distance.</li></ul><button class="tech-ask-ai" type="button" data-ask-ai="Give me a short Minecraft Bedrock bow-aim practice drill for leading moving targets.">Ask AI for a practice drill <span aria-hidden="true">↗</span></button>',
+ survival: '<h3>Preparation &amp; survival</h3><ul><li>Keep healing, food, blocks, and any escape items you actually have in consistent hotbar slots.</li><li>Check armor durability and supplies before a risky fight; do not assume a kit includes particular items.</li><li>Use terrain for cover and keep an exit route in mind before chasing an opponent.</li><li>Review a loss: note aim, spacing, and resource decisions, then practice one improvement at a time.</li></ul><button class="tech-ask-ai" type="button" data-ask-ai="Build me a simple fair-play Bedrock PvP preparation checklist for an anarchy survival fight.">Ask AI for a checklist <span aria-hidden="true">↗</span></button>'
+};
+const techniqueTabs = [...document.querySelectorAll('.tech-tab')];
+const techniquePanel = document.getElementById('techniquePanel');
+function setTechniqueTab(key) {
+  const tab = techniqueTabs.find(item => item.dataset.technique === key);
+  if (!tab || !techniquePanel || !techniqueContent[key]) return;
+  techniquePanel.innerHTML = techniqueContent[key];
+  techniquePanel.setAttribute('aria-labelledby', tab.id);
+  techniqueTabs.forEach(item => { const active = item === tab; item.classList.toggle('active', active); item.setAttribute('aria-selected', String(active)); item.tabIndex = active ? 0 : -1; });
+}
+techniqueTabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => setTechniqueTab(tab.dataset.technique));
+  tab.addEventListener('keydown', event => {
+    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+    event.preventDefault();
+    const next = (index + (event.key === 'ArrowRight' ? 1 : -1) + techniqueTabs.length) % techniqueTabs.length;
+    techniqueTabs[next].focus();
+    setTechniqueTab(techniqueTabs[next].dataset.technique);
+  });
+});
+techniquePanel?.addEventListener('click', event => {
+  const button = event.target.closest('[data-ask-ai]');
+  if (button) window.dispatchEvent(new CustomEvent('bladefall:ask-ai', { detail: { prompt: button.dataset.askAi } }));
+});
+setTechniqueTab('movement');
+
 const pvpButtons = [...document.querySelectorAll('.pvp-player')];
 const pvpList = document.querySelector('.pvp-player-list');
 document.querySelectorAll('.filter-btn').forEach(button => button.addEventListener('click', () => {

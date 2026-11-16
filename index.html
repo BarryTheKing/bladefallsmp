@@ -19,7 +19,9 @@
     <nav class="nav-side nav-left" aria-label="Primary navigation">
       <a class="nav-icon" href="#about" aria-label="About" title="About"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></a>
       <a class="nav-icon" href="#features" aria-label="Features" title="Features"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 2.3 6.2L21 10.5l-6.7 2.3L12 19l-2.3-6.2L3 10.5l6.7-2.3z"/><path d="m19 15 1.1 2.9L23 19l-2.9 1.1L19 23l-1.1-2.9L15 19l2.9-1.1z"/></svg></a>
+      <a class="nav-icon" href="#pvp-techniques" aria-label="PvP techniques" title="PvP techniques"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3.5 20.5 9.5M4 20l4.2-1 10.9-10.9a2.1 2.1 0 0 0-3-3L5.2 16z"/><path d="m13 5 6 6M4 20h6"/></svg></a>
       <a class="nav-icon" href="#news" aria-label="News" title="News"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M7.5 8h3v3h-3zm5.5 0h4m-4 3h4M7.5 15h9m-9 3h9"/></svg></a>
+      <a class="nav-icon" href="#other-servers" aria-label="More PvP servers" title="More PvP servers"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></a>
     </nav>
     <a class="brand centered-brand" href="#top" aria-label="BladefallSMP home"><img class="nav-logo" src="img/bladefallsmp-logo.png" alt="BladefallSMP" /></a>
     <nav class="nav-side nav-right" aria-label="More navigation">
@@ -89,6 +91,18 @@
           <p>Covered in obsidian or hidden deep underground — if they find you, it's war.</p>
         </article>
       </div>
+    </section>
+
+    <section id="pvp-techniques" class="section pvp-techniques">
+      <div class="technique-heading"><div><span class="mcpvp-eyebrow">BEDROCK COMBAT</span><h2>PvP Techniques</h2></div><span class="technique-note">Fair-play fundamentals · adapt to your kit</span></div>
+      <div class="tech-tabs" role="tablist" aria-label="PvP technique categories">
+        <button class="tech-tab active" id="tech-tab-movement" type="button" role="tab" aria-selected="true" aria-controls="techniquePanel" data-technique="movement">Movement</button>
+        <button class="tech-tab" id="tech-tab-melee" type="button" role="tab" aria-selected="false" aria-controls="techniquePanel" data-technique="melee">Melee</button>
+        <button class="tech-tab" id="tech-tab-ranged" type="button" role="tab" aria-selected="false" aria-controls="techniquePanel" data-technique="ranged">Ranged</button>
+        <button class="tech-tab" id="tech-tab-survival" type="button" role="tab" aria-selected="false" aria-controls="techniquePanel" data-technique="survival">Prep &amp; Survival</button>
+      </div>
+      <div class="tech-panel" id="techniquePanel" role="tabpanel" aria-labelledby="tech-tab-movement" tabindex="0"></div>
+      <p class="technique-disclaimer">General Minecraft Bedrock tips, not a claim about specific BladefallSMP items or mechanics.</p>
     </section>
 
     <section id="news" class="section news">
@@ -382,6 +396,15 @@
       </div>
     </section>
 
+    <section id="mcpvp-official" class="section mcpvp-official">
+      <div class="mcpvp-official-heading"><div><span class="mcpvp-eyebrow">FROM MCPVP.COM</span><h2>MCPVP Competitive Hub</h2></div><p class="mcpvp-live-note">Reference info from MCPVP; check their site for the latest.</p></div>
+      <div class="mcpvp-official-grid">
+        <article class="news-card mcpvp-official-card"><span class="news-category">BETA TIERS</span><h3>Competitive rankings</h3><div class="mcpvp-official-tiers"><span>HT1 <b>400+</b></span><span>MT1 <b>350+</b></span><span>LT1 <b>300+</b></span><span>HT2 <b>250+</b></span><span>MT2 <b>200+</b></span><span>LT2 <b>150+</b></span></div><p>Points thresholds shown on MCPVP’s tier page. Beta tiers may reset.</p><a href="https://www.mcpvp.com/tiers" target="_blank" rel="noopener noreferrer">See official tiers <span aria-hidden="true">↗</span></a></article>
+        <article class="news-card mcpvp-official-card"><span class="news-category">KITS &amp; MODES</span><h3>Choose your PvP style</h3><div class="mcpvp-official-kits"><span>Diamond SMP</span><span>Creeper</span><span>Netherite Pot</span><span>SMP</span><span>Cart</span><span>Crystal</span><span>Bow</span><span>UHC</span></div><p>Modes listed on MCPVP’s tiers page.</p><a href="https://www.mcpvp.com/tiers" target="_blank" rel="noopener noreferrer">Explore kits &amp; modes <span aria-hidden="true">↗</span></a></article>
+        <article class="news-card mcpvp-official-card"><span class="news-category">OFFICIAL LINKS</span><h3>Explore MCPVP</h3><p>Open the official pages for server locations, the MCPVP client, and tournaments.</p><div class="mcpvp-official-links"><a href="https://www.mcpvp.com/servers" target="_blank" rel="noopener noreferrer">Servers ↗</a><a href="https://www.mcpvp.com/client" target="_blank" rel="noopener noreferrer">Client ↗</a><a href="https://www.mcpvp.com/tourney" target="_blank" rel="noopener noreferrer">Tourneys ↗</a></div></article>
+      </div>
+    </section>
+
     <section id="server-guide" class="section server-guide"><div class="guide-heading"><span class="mcpvp-eyebrow">BLADEFALL SMP • FIELD GUIDE</span><h2>Server Guide</h2></div><div class="guide-tabs" role="tablist" aria-label="Server Guide"><button class="guide-tab active" role="tab" aria-selected="true" data-tab="rules">Server Rules</button><button class="guide-tab" role="tab" aria-selected="false" data-tab="mechanics">PvP Mechanics</button><button class="guide-tab" role="tab" aria-selected="false" data-tab="howto">How to Join</button><button class="guide-tab" role="tab" aria-selected="false" data-tab="ranks">Ranks</button></div><div class="guide-panel" role="tabpanel" id="guidePanel"></div></section>
 
     <section id="join" class="section join">
@@ -457,6 +480,16 @@
       </div>
     </section>
 
+  <section id="other-servers" class="section other-servers">
+    <div class="other-servers-heading"><div><span class="mcpvp-eyebrow">DISCOVER MORE</span><h2>Other PvP Servers</h2></div></div>
+    <div class="news-grid other-servers-grid">
+      <article class="news-card"><span class="news-category">SURVIVAL SMP</span><h3>DonutSMP</h3><p>Explore the official DonutSMP website.</p><a href="https://donutsmp.net/" target="_blank" rel="noopener noreferrer">Visit DonutSMP <span aria-hidden="true">↗</span></a></article>
+      <article class="news-card"><span class="news-category">ANARCHY SMP</span><h3>2b2t</h3><p>Explore the official 2b2t website.</p><a href="https://www.2b2t.org/" target="_blank" rel="noopener noreferrer">Visit 2b2t <span aria-hidden="true">↗</span></a></article>
+      <article class="news-card"><span class="news-category">PVP NETWORK</span><h3>PvP Legacy</h3><p>Visit the PvP Legacy community and server website.</p><a href="https://pvplegacy.net/" target="_blank" rel="noopener noreferrer">Visit PvP Legacy <span aria-hidden="true">↗</span></a></article>
+      <article class="news-card"><span class="news-category">MINIGAMES &amp; PVP</span><h3>Hypixel</h3><p>Browse the official Hypixel network website.</p><a href="https://hypixel.net/" target="_blank" rel="noopener noreferrer">Visit Hypixel <span aria-hidden="true">↗</span></a></article>
+    </div>
+  </section>
+
   <section id="community" class="section community">
     <h2>Community &amp; Credits</h2>
     <p class="lede">Join our YouTube channel and meet the crew behind BladefallSMP.</p>
@@ -505,9 +538,19 @@
     <button class="dialog-close" type="button" aria-label="Close">×</button>
     <h2 id="legalTitle"></h2>
     <div id="legalBody"></div>
+  </dialog>
 
   <script type="module" src="app.js"></script>
 
-<div style="position: fixed; bottom: 16px; right: 16px; background: rgba(15, 23, 42, 0.9); border: 1px solid #38bdf8; color: #7dd3fc; padding: 8px 14px; border-radius: 999px; font-size: 12px; z-index: 9999;">✦ Bladefall AI is only on Websim</div>
-  </dialog>body>
+  <button class="ai-launcher" id="aiLauncher" type="button" aria-haspopup="dialog" aria-controls="aiPanel" aria-expanded="false"><span class="ai-launch-icon" aria-hidden="true">✦</span><span class="ai-launch-label">Ask Bladefall AI</span></button>
+  <aside class="ai-panel" id="aiPanel" role="dialog" aria-label="Bladefall AI assistant" aria-modal="false" hidden>
+    <header class="ai-header"><div class="ai-brand-mark" aria-hidden="true">✦</div><div class="ai-header-copy"><strong>Bladefall AI</strong><span><i></i> 30+ languages · ready 24/7</span></div><button class="ai-close" id="aiClose" type="button" aria-label="Close assistant">×</button></header>
+    <div class="ai-chat-log" id="aiChatLog" role="log" aria-live="polite" aria-relevant="additions text"></div>
+    <form class="ai-compose" id="aiForm"><label class="sr-only" for="aiInput">Message Bladefall AI</label><textarea id="aiInput" rows="1" maxlength="2000" placeholder="Ask about BladefallSMP or PvP…" required></textarea><button class="ai-send" id="aiSend" type="submit" aria-label="Send message">↑</button></form>
+    <div class="ai-footnote">AI-generated · remembers up to 80 recent messages<br><span>AI chatbot is only exclusively available on websim because GitHub pages doesnt allow AI service</span></div>
+  </aside>
+  <script src="ai-config.js"></script>
+  <script type="module" src="ai-assistant.js"></script>
+
+</body>
 </html>
